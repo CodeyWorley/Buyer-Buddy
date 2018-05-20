@@ -12,10 +12,9 @@ const Listing = mongoose.model('listings');
 // Create App
 const app = express();
 
-app.get('/api/listings', function(req, res) {
-  Listing.find({}, function(err, listings) {
-    res.json(listings);
-  });
+app.get('/api/listings', async (req, res) => {
+  const listings = await Listing.find({});
+  res.json(listings);
 });
 
 if (process.env.NODE_ENV === 'production') {
