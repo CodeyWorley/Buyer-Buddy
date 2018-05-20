@@ -1,0 +1,13 @@
+
+.ReactTable .rt-td {
+  white-space: normal;
+  text-align: center;
+}
+
+.ReactTable .rt-thead .rt-resizable-header-content {
+  white-space: normal;
+}
+
+.ReactTable .rt-resizer {
+    width: 0;
+}
