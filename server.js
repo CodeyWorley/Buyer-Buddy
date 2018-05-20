@@ -17,15 +17,20 @@ app.get('/', (req, res) => {
   res.send({hi:'there'});
 });
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
-
 app.get('/api/listings', function(req, res) {
   Listing.find({}, function(err, listings) {
     res.json(listings);
   });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // Listen on PORT
 const PORT = process.env.PORT || 5000;
