@@ -12,11 +12,6 @@ const Listing = mongoose.model('listings');
 // Create App
 const app = express();
 
-// Simple Routes
-app.get('/', (req, res) => {
-  res.send({hi:'there'});
-});
-
 app.get('/api/listings', function(req, res) {
   Listing.find({}, function(err, listings) {
     res.json(listings);
