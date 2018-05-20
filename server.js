@@ -14,7 +14,7 @@ const app = express();
 
 app.get('/api/listings', async (req, res) => {
   const listings = await Listing.find({});
-  res.json(listings);
+  res.send(listings);
 });
 
 if (process.env.NODE_ENV === 'production') {
