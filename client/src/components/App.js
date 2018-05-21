@@ -5,7 +5,6 @@ import * as actions from '../actions';
 
 // Component Imports
 import Listings from './Listings';
-import Test from './Test';
 const Nav = () => <h2>Navbar</h2>
 const Footer = () => <h2>Footer</h2>
 const Dashboard = () => <h2>Dashboard</h2>
@@ -20,7 +19,7 @@ class App extends Component {
           <div>
             <Nav />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/" component={Test} />
+            <Route exact path="/" component={Listings} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard" component={Listings} />
             <Footer />

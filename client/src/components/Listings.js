@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { fetchListings } from '../actions/index'
 // Import React Table
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import "../css/react-table.css"
+import "../css/react-table.css";
 
-class Listings extends Component {
-  constructor(){
-    super();
-    this.state ={listings: []};
-  }
+class ListingsList extends Component {
+
   componentDidMount() {
-    fetch('/api/listings')
-      .then(res => {
-        console.log(res);
-        return res.json()
-      })
-      .then(listings => {
-        console.log(listings);
-        this.setState({ listings })
-      });
+    this.props.fetchListings()
   }
-  // Table Changes Only
-  render() {
-    const { listings } = this.state;
+
+  render(props) {
+    const { listings } = this.props;
     return (
       <div>
         <ReactTable
@@ -93,4 +83,9 @@ class Listings extends Component {
     );
   }
 }
-export default Listings;
+
+function mapStateToProps({ listings }) {
+  return { listings };
+}
+
+export default connect(mapStateToProps, { fetchListings })(ListingsList);
