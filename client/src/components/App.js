@@ -3,16 +3,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-
-// CSS imports
-import "../css/react-table.css";
-
 // Component Imports
 import Listings from './Listings';
 import Nav from './Nav';
 import Footer from './Footer';
-const Dashboard = () => <h2>Dashboard</h2>
-const Landing = () => <h2>Landing</h2>
+import Dashboard from './Dashboard';
+import Landing from './Landing';
+import Login from './Login';
 
 // App paths
 class App extends Component {
@@ -22,7 +19,12 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Nav />
-            <Route exact path="/" component={Listings} />
+            <Route exact path="/" component={Landing} />
+
+            <Route exact path="/login" component={Login} />
+
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" component={Listings} />
             <Footer />
           </div>
         </BrowserRouter>

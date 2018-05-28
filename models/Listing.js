@@ -6,7 +6,8 @@ const listingSchema = new Schema({
   sku: String,
   asin: String,
   price: String,
-  inventory: String
+  inventory: String,
+  family: String
 });
 
 mongoose.model('listings', listingSchema);

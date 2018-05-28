@@ -5,9 +5,9 @@ class Nav extends Component {
     return (
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">BuyerBuddy</a>
+          <a href="/" class="brand-logo">BuyerBuddy</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="collapsible.html">Stuff</a></li>
+            <li><a href="/login">Login</a></li>
           </ul>
         </div>
       </nav>

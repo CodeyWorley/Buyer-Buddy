@@ -8,10 +8,14 @@ mongoose.connect(keys.mongoURI);
 // Create Listing Model
 require('./models/Listing');
 const Listing = mongoose.model('listings');
+// Create User Model
+require('./models/User');
+const User = mongoose.model('user');
 
 // Create App
 const app = express();
 
+// Api Paths
 app.get('/api/listings', async (req, res) => {
   const listings = await Listing.find({});
   res.send(listings);

@@ -4,6 +4,7 @@ import { fetchListings } from '../actions/index'
 // Import React Table
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import "../css/react-table.css";
 
 class ListingsList extends Component {
 
@@ -73,6 +74,7 @@ class ListingsList extends Component {
               ]
             }
           ]}
+          //pivotBy={["family"]}
           defaultPageSize={25}
           style={{ }}
           className="-striped -highlight"

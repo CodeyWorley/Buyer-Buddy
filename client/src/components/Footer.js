@@ -13,7 +13,7 @@ class Footer extends Component {
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="/">Link 1</a></li>
               </ul>
             </div>
           </div>
@@ -21,7 +21,7 @@ class Footer extends Component {
         <div class="footer-copyright">
           <div class="container">
           © 2018 Copyright BuyerBuddy
-          <a class="grey-text text-lighten-4 right" href="#!"></a>
+          <a class="grey-text text-lighten-4 right" href="/">Link 2</a>
           </div>
         </div>
       </footer>
