@@ -1,25 +1,36 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 const keys = require('./config/keys');
+require('./models/Listing');
+require('./models/User');
+require('./services/passport');
 
 // Connect to DB
 mongoose.connect(keys.mongoURI);
 
-// Create Listing Model
-require('./models/Listing');
+// Create Models
 const Listing = mongoose.model('listings');
-// Create User Model
-require('./models/User');
 const User = mongoose.model('user');
 
 // Create App
 const app = express();
 
-// Api Paths
-app.get('/api/listings', async (req, res) => {
-  const listings = await Listing.find({});
-  res.send(listings);
-});
+// Cookies
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Get Routes
+require('./routes/authRoutes')(app);
+require('./routes/listingRoutes')(app);
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

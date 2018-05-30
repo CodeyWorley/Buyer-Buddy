@@ -9,10 +9,14 @@ import Nav from './Nav';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
 import Landing from './Landing';
-import Login from './Login';
+import Account from './Account';
 
 // App paths
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
       <div>
@@ -21,10 +25,10 @@ class App extends Component {
             <Nav />
             <Route exact path="/" component={Landing} />
 
-            <Route exact path="/login" component={Login} />
-
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard" component={Listings} />
+
+            <Route exact path="/account" component={Account} />
             <Footer />
           </div>
         </BrowserRouter>

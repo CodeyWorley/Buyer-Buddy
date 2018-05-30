@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-class Landing extends Component {
+class Account extends Component {
   render() {
     return (
       <div style={{ textAlign: 'center'}}>
         <h1>
-          BuyerBuddy
+          Account
         </h1>
-        A better buying experience for Amazon Sellers!
+        Edit Profile
       </div>
     );
   }
 }
 
-export default Landing;
+export default Account;

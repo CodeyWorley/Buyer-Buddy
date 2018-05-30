@@ -7,7 +7,8 @@ const listingSchema = new Schema({
   asin: String,
   price: String,
   inventory: String,
-  family: String
+  family: String,
+  sellerId: String
 });
 
 mongoose.model('listings', listingSchema);

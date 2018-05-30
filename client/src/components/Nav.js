@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Nav extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return <li><a href="/auth/google">Login With Google</a></li>;
+      default:
+        return <ul><li><a href="/account">Account</a></li><li><a href="/api/logout">Logout</a></li></ul>;
+    }
+  }
   render() {
     return (
       <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">BuyerBuddy</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/login">Login</a></li>
+        <div className="nav-wrapper">
+          <Link
+            to={this.props.auth ? '/dashboard' : '/'}
+            className="left brand-logo"
+          >
+            BuyerBuddy
+          </Link>
+          <ul className="right">
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
@@ -15,4 +32,8 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Nav);
