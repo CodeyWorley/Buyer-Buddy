@@ -5,8 +5,8 @@ const listingSchema = new Schema({
   title: String,
   sku: String,
   asin: String,
-  price: String,
-  inventory: String,
+  price: Number,
+  inventory: Number,
   family: String,
   sellerId: String
 });
