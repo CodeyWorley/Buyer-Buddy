@@ -10,13 +10,13 @@ class Nav extends Component {
       case false:
         return <li><a href="/auth/google">Login With Google</a></li>;
       default:
-        return <ul><li><a href="/account">Account</a></li><li><a href="/api/logout">Logout</a></li></ul>;
+        return <ul><li><a href="/api/logout">Logout</a></li></ul>;
     }
   }
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
+      <nav >
+        <div style={{marginLeft: '20px', marginRight: '20px'}} className="nav-wrapper">
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
             className="left brand-logo"

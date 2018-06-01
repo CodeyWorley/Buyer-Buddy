@@ -15,7 +15,7 @@ class ListingsList extends Component {
   render(props) {
     const { listings } = this.props;
     return (
-      <div>
+      <div style={{marginLeft: '20px', marginRight: '20px'}}>
         <ReactTable
           data={ listings }
           columns={[
