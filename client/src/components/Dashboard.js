@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAccountInfo } from '../actions/index'
+import { fetchAccountInfo, fetchListings } from '../actions/index'
 import Listings from './Listings';
 import Vendor from './Vendor';
 
@@ -28,8 +28,8 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ account }) {
-  return { account };
+function mapStateToProps({ account, listings }) {
+  return { account, listings };
 }
 
 export default connect(mapStateToProps, { fetchAccountInfo })(Dashboard);
