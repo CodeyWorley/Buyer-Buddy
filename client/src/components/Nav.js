@@ -15,7 +15,7 @@ class Nav extends Component {
   }
   render() {
     return (
-      <nav>
+      <nav class="blue darken-1">
         <div style={{marginLeft: '20px', marginRight: '20px'}} className="nav-wrapper">
           <Link
             to={this.props.auth ? '/dashboard' : '/'}

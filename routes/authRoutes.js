@@ -29,4 +29,11 @@ module.exports = app => {
     var user = await User.findOne({ googleId: req.user.googleId }); //.lean(true);
     res.send(user);
   });
-};
+
+  app.post('/api/update_account_info', async (req, res) => {
+    const { storeName, sellerId, authToken } = req.body;
+    var user = await User.update({ googleId: req.user.googleId }, { $set: {storeName: storeName, sellerId: sellerId, authToken: authToken}});
+    res.send(user);
+  });
+
+}

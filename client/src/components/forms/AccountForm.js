@@ -1,47 +1,41 @@
-import React from 'react'
-import {Field, reduxForm} from 'redux-form'
+import React, { Component } from 'react';
+import {Field, reduxForm} from 'redux-form';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { updateAccountInfo } from '../../actions/index';
 
-const AccountForm = props => {
-  const {handleSubmit, pristine, reset, submitting} = props
-  return (
-    <form onSubmit={handleSubmit}>
+class AccountForm extends Component {
+  render() {
+    return(
       <div>
-        <label>Store Name</label>
-        <div>
-          <Field
-            name="storeName"
-            component="input"
-            type="text"
-            placeholder={props.storeName}
-          />
-        </div>
-        <label>Seller ID</label>
-        <div>
-          <Field
-            name="sellerId"
-            component="input"
-            type="text"
-            placeholder={props.sellerId}
-          />
-        </div>
-        <label>MWS Auth Token</label>
-        <div>
-          <Field
-            name="authToken"
-            component="input"
-            type="text"
-            placeholder={props.authToken}
-          />
-        </div>
+        <form onSubmit={this.props.handleSubmit(values => this.props.updateAccountInfo(values, this.props.history))}>
+          <label>Store Name</label>
+          <Field style={{height: '2rem'}} type="text" name="storeName" component="input" />
+          <label>Seller ID</label>
+          <Field style={{height: '2rem'}} type="text" name="sellerId" component="input" />
+          <label>MWS Auth Token</label>
+          <Field style={{height: '2rem'}} type="text" name="authToken" component="input" />
+          <Link to="/dashboard">Cancel</Link>
+          <button class="waves-effect waves-light btn-small blue darken-1" style={{marginLeft: '1vw'}} type="submit">Save</button>
+        </form>
       </div>
-      <div>
-        <button type="submit" disabled={pristine || submitting}>Save</button>
-      </div>
-    </form>
-  );
+    );
+  }
 }
 
-export default reduxForm({
-  form: 'simple',
-  enableReinitialize: true
-})(AccountForm)
+function mapStateToProps({ account }) {
+  return {
+    account,
+    initialValues: {
+      storeName: account.storeName,
+      sellerId: account.sellerId,
+      authToken: account.authToken
+    }
+  }
+}
+
+export default connect(mapStateToProps, { updateAccountInfo })
+    (reduxForm({
+      form: 'AccountForm',
+      enableReinitialize: true
+    })(AccountForm));

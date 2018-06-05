@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 // Component Imports
-import Listings from './Listings';
 import Nav from './Nav';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
@@ -28,7 +27,7 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard} />
 
             <Route exact path="/account" component={Account} />
-            
+
             <Footer />
           </div>
         </BrowserRouter>

@@ -4,9 +4,10 @@ const { Schema }  = mongoose;
 const userSchema = new Schema({
   googleId: String,
   sellerId: String,
-  accessKey: String,
-  secretKey: String,
-  status: String
+  authToken: String,
+  storeName: String,
+  status: String,
+  updated: String
 });
 
 mongoose.model('user', userSchema);

@@ -20,3 +20,10 @@ export const fetchAccountInfo = () => async dispatch => {
 
   dispatch({type: FETCH_ACCOUNT_INFO, payload: res.data})
 }
+
+export const updateAccountInfo = (values, history) => async dispatch => {
+  const res = await axios.post('/api/update_account_info', values);
+
+  history.push('/dashboard')
+  dispatch({type: FETCH_ACCOUNT_INFO, payload: res.data});
+}
