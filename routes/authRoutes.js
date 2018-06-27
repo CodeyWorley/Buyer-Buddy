@@ -32,7 +32,7 @@ module.exports = app => {
 
   app.post('/api/update_account_info', async (req, res) => {
     const { storeName, sellerId, authToken } = req.body;
-    var user = await User.update({ googleId: req.user.googleId }, { $set: {storeName: storeName, sellerId: sellerId, authToken: authToken}});
+    var user = await User.update({ googleId: req.user.googleId }, { $set: {storeName: storeName, sellerId: sellerId, authToken: authToken, status: 'Pending'}});
     res.send(user);
   });
 

@@ -14,6 +14,9 @@ class ListingsList extends Component {
 
   render(props) {
     const { listings } = this.props;
+
+    console.log(this.props.listings);
+
     return (
       <div style={{marginLeft: '20px', marginRight: '20px'}}>
         <ReactTable
@@ -53,16 +56,16 @@ class ListingsList extends Component {
               columns: [
                 {
                   Header: "Sales Today",
-                  accessor: "sales",
+                  accessor: "2018.157",
                   maxWidth: 100
                 },
                 {
-                  Header: "Sales Week",
+                  Header: "Sales This Week",
                   accessor: "salesweek",
                   maxWidth: 100
                 },
                 {
-                  Header: "Sales Month",
+                  Header: "Sales This Month",
                   accessor: "salesmonth",
                   maxWidth: 100
                 },
